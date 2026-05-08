@@ -1,0 +1,3 @@
+plugin "beancount.plugins.commodity_attr" "{:sector [\"Technology\" \"Financials\"]}"
+
+2020-01-01 commodity AAPL

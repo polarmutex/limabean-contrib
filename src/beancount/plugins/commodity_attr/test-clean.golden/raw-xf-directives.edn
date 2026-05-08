@@ -1,0 +1,8 @@
+[{:cur "AAPL",
+  :date #time/date "2020-01-01",
+  :dct :commodity,
+  :metadata {:name {:string "Apple Inc"}, :sector {:string "Technology"}}}
+ {:cur "JPM",
+  :date #time/date "2020-01-01",
+  :dct :commodity,
+  :metadata {:name {:string "JPMorgan Chase"}, :sector {:string "Financials"}}}]

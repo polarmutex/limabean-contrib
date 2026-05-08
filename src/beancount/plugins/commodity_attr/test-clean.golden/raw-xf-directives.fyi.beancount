@@ -1,0 +1,7 @@
+2020-01-01 commodity AAPL
+  name: "Apple Inc"
+  sector: "Technology"
+
+2020-01-01 commodity JPM
+  name: "JPMorgan Chase"
+  sector: "Financials"

@@ -1,0 +1,9 @@
+plugin "beancount.plugins.commodity_attr" "{:sector [\"Technology\" \"Financials\"] :name nil}"
+
+2020-01-01 commodity AAPL
+  sector: "Technology"
+  name: "Apple Inc"
+
+2020-01-01 commodity JPM
+  sector: "Financials"
+  name: "JPMorgan Chase"
