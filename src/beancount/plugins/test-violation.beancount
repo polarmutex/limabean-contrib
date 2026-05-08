@@ -1,0 +1,17 @@
+plugin "beancount.plugins.check-commodity"
+
+; EUR is used in a transaction but has no Commodity directive — should error.
+
+2020-01-01 commodity USD
+
+2020-01-01 open Assets:Cash
+2020-01-01 open Expenses:Food
+2020-01-01 open Equity:Opening-Balances
+
+2020-01-01 * "Opening balance"
+  Assets:Cash              500.00 USD
+  Equity:Opening-Balances -500.00 USD
+
+2020-01-15 * "Groceries abroad"
+  Expenses:Food    50.00 EUR
+  Assets:Cash     -50.00 EUR

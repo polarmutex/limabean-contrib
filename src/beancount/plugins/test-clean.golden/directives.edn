@@ -1,0 +1,32 @@
+[{:cur "USD", :date #time/date "2020-01-01", :dct :commodity}
+ {:cur "AAPL", :date #time/date "2020-01-01", :dct :commodity}
+ {:acc "Assets:Brokerage", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Assets:Cash", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Income:Dividends", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Equity:Opening-Balances", :date #time/date "2020-01-01", :dct :open}
+ {:date #time/date "2020-01-01",
+  :dct :txn,
+  :flag "*",
+  :narration "Opening balance",
+  :postings [{:acc "Assets:Cash", :cur "USD", :units 10000.00M}
+             {:acc "Equity:Opening-Balances", :cur "USD", :units -10000.00M}]}
+ {:date #time/date "2020-01-15",
+  :dct :txn,
+  :flag "*",
+  :narration "Buy AAPL",
+  :postings [{:acc "Assets:Brokerage",
+              :cost {:cur "USD",
+                     :date #time/date "2020-01-15",
+                     :per-unit 180.00M,
+                     :total 1800.00M},
+              :cur "AAPL",
+              :units 10} {:acc "Assets:Cash", :cur "USD", :units -1800.00M}]}
+ {:acc "Assets:Cash",
+  :cur "USD",
+  :date #time/date "2020-02-01",
+  :dct :balance,
+  :units 8200.00M}
+ {:cur "AAPL",
+  :date #time/date "2020-02-01",
+  :dct :price,
+  :price {:cur "USD", :per-unit 185.00M}}]
