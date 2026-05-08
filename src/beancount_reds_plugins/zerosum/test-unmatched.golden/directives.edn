@@ -1,0 +1,36 @@
+[{:acc "Assets:Bank",
+  :currencies #{"USD"},
+  :date #time/date "2020-01-01",
+  :dct :open}
+ {:acc "Assets:Other",
+  :currencies #{"USD"},
+  :date #time/date "2020-01-01",
+  :dct :open}
+ {:acc "Assets:ZSA:Transfers",
+  :currencies #{"USD"},
+  :date #time/date "2020-01-01",
+  :dct :open}
+ {:acc "Assets:ZSA-Matched:Transfers",
+  :currencies #{"USD"},
+  :date #time/date "2020-01-01",
+  :dct :open}
+ {:date #time/date "2020-01-05",
+  :dct :txn,
+  :flag "*",
+  :narration "Transfer out A",
+  :postings [{:acc "Assets:Bank", :cur "USD", :units -100}
+             {:acc "Assets:ZSA-Matched:Transfers", :cur "USD", :units 100}],
+  :provenance ["beancount-reds-plugins.zerosum.zerosum"]}
+ {:date #time/date "2020-01-10",
+  :dct :txn,
+  :flag "*",
+  :narration "Transfer in A",
+  :postings [{:acc "Assets:Other", :cur "USD", :units 100}
+             {:acc "Assets:ZSA-Matched:Transfers", :cur "USD", :units -100}],
+  :provenance ["beancount-reds-plugins.zerosum.zerosum"]}
+ {:date #time/date "2020-01-20",
+  :dct :txn,
+  :flag "*",
+  :narration "Transfer out B (unmatched)",
+  :postings [{:acc "Assets:Bank", :cur "USD", :units -50}
+             {:acc "Assets:ZSA:Transfers", :cur "USD", :units 50}]}]

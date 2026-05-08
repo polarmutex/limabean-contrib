@@ -1,0 +1,19 @@
+2020-01-01 open Assets:Bank USD
+
+2020-01-01 open Assets:Other USD
+
+2020-01-01 open Assets:ZSA:Transfers USD
+
+2020-01-01 open Assets:ZSA-Matched:Transfers USD
+
+2020-01-05 * "Transfer out A"
+  Assets:Bank -100 USD
+  Assets:ZSA-Matched:Transfers 100 USD
+
+2020-01-10 * "Transfer in A"
+  Assets:Other 100 USD
+  Assets:ZSA-Matched:Transfers -100 USD
+
+2020-01-20 * "Transfer out B (unmatched)"
+  Assets:Bank -50 USD
+  Assets:ZSA:Transfers 50 USD

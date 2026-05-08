@@ -1,0 +1,15 @@
+plugin "beancount-reds-plugins.zerosum.zerosum" "{:zerosum-accounts {\"Assets:ZSA:Transfers\" [\"Assets:ZSA-Matched:Transfers\" 30]}}"
+
+2020-01-01 open Assets:Bank USD
+2020-01-01 open Assets:Other USD
+2020-01-01 open Assets:ZSA:Transfers USD
+2020-01-01 open Assets:ZSA-Matched:Transfers USD
+
+; These two postings are equal-and-opposite within 30 days — they match.
+2020-01-05 * "Transfer out"
+  Assets:Bank            -100 USD
+  Assets:ZSA:Transfers    100 USD
+
+2020-01-10 * "Transfer in"
+  Assets:Other             100 USD
+  Assets:ZSA:Transfers    -100 USD

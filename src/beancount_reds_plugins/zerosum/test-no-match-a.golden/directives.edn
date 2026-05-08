@@ -1,0 +1,29 @@
+[{:acc "Assets:Bank",
+  :currencies #{"USD"},
+  :date #time/date "2005-01-01",
+  :dct :open}
+ {:acc "Assets:TB-Trading",
+  :currencies #{"USD"},
+  :date #time/date "2005-01-01",
+  :dct :open}
+ {:acc "Assets:ZSA:Transfers",
+  :currencies #{"USD"},
+  :date #time/date "2005-01-01",
+  :dct :open}
+ {:acc "Assets:ZSA-Matched:Transfers",
+  :currencies #{"USD"},
+  :date #time/date "2005-01-01",
+  :dct :open}
+ {:date #time/date "2005-01-01",
+  :dct :txn,
+  :flag "*",
+  :narration "Transfer",
+  :postings [{:acc "Assets:Bank", :cur "USD", :units -20}
+             {:acc "Assets:ZSA:Transfers", :cur "USD", :units 10}
+             {:acc "Assets:ZSA:Transfers", :cur "USD", :units 10}]}
+ {:date #time/date "2005-01-03",
+  :dct :txn,
+  :flag "*",
+  :narration "Transfer",
+  :postings [{:acc "Assets:TB-Trading", :cur "USD", :units 20}
+             {:acc "Assets:ZSA:Transfers", :cur "USD", :units -20}]}]

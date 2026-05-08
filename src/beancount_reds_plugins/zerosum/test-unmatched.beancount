@@ -1,0 +1,20 @@
+plugin "beancount-reds-plugins.zerosum.zerosum" "{:zerosum-accounts {\"Assets:ZSA:Transfers\" [\"Assets:ZSA-Matched:Transfers\" 30]}}"
+
+2020-01-01 open Assets:Bank USD
+2020-01-01 open Assets:Other USD
+2020-01-01 open Assets:ZSA:Transfers USD
+2020-01-01 open Assets:ZSA-Matched:Transfers USD
+
+; This pair matches — both move to the matched account.
+2020-01-05 * "Transfer out A"
+  Assets:Bank            -100 USD
+  Assets:ZSA:Transfers    100 USD
+
+2020-01-10 * "Transfer in A"
+  Assets:Other             100 USD
+  Assets:ZSA:Transfers    -100 USD
+
+; This posting has no opposite within 30 days — stays unmatched.
+2020-01-20 * "Transfer out B (unmatched)"
+  Assets:Bank             -50 USD
+  Assets:ZSA:Transfers     50 USD

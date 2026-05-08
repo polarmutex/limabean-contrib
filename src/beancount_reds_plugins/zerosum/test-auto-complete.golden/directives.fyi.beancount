@@ -1,0 +1,15 @@
+2005-01-01 open Assets:Bank USD
+
+2005-01-01 open Assets:TB-Trading USD
+
+2005-01-01 open Assets:ZSA:Transfers USD
+
+2005-01-01 open Assets:ZSA-Matched:Transfers USD
+
+2005-01-01 * "Transfer out"
+  Assets:Bank -20 USD
+  Assets:ZSA-Matched:Transfers 20 USD
+
+2005-01-03 * "Transfer in"
+  Assets:TB-Trading 20 USD
+  Assets:ZSA-Matched:Transfers -20 USD

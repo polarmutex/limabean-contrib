@@ -1,0 +1,16 @@
+; Example 1 from the README: ZeroSumAccount:Transfers has no explicit amount —
+; beancount auto-completes to +20 and -20 respectively.
+plugin "beancount-reds-plugins.zerosum.zerosum" "{:zerosum-accounts {\"Assets:ZSA:Transfers\" [\"Assets:ZSA-Matched:Transfers\" 30]}}"
+
+2005-01-01 open Assets:Bank USD
+2005-01-01 open Assets:TB-Trading USD
+2005-01-01 open Assets:ZSA:Transfers USD
+2005-01-01 open Assets:ZSA-Matched:Transfers USD
+
+2005-01-01 * "Transfer out"
+  Assets:Bank            -20 USD
+  Assets:ZSA:Transfers
+
+2005-01-03 * "Transfer in"
+  Assets:TB-Trading       20 USD
+  Assets:ZSA:Transfers
