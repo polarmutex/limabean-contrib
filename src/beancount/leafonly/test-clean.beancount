@@ -1,0 +1,21 @@
+plugin "beancount.leafonly.leafonly"
+
+; Assets:Bank and Expenses:Food are non-leaf accounts (each has child accounts).
+; The plugin should allow transactions that only post to their leaf descendants.
+
+2020-01-01 open Assets:Bank
+2020-01-01 open Assets:Bank:Checking
+2020-01-01 open Assets:Bank:Savings
+2020-01-01 open Expenses:Food
+2020-01-01 open Expenses:Food:Groceries
+2020-01-01 open Expenses:Food:Restaurants
+2020-01-01 open Income:Salary
+2020-01-01 open Equity:Opening-Balances
+
+2020-01-02 * "Employer" "January salary"
+  Income:Salary            -5000.00 USD
+  Assets:Bank:Checking      5000.00 USD
+
+2020-01-05 * "Grocery Store" "Weekly groceries"
+  Expenses:Food:Groceries    50.00 USD
+  Assets:Bank:Checking       -50.00 USD

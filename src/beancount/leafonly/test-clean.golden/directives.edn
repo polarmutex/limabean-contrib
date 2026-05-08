@@ -1,0 +1,22 @@
+[{:acc "Assets:Bank", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Assets:Bank:Checking", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Assets:Bank:Savings", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Expenses:Food", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Expenses:Food:Groceries", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Expenses:Food:Restaurants", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Income:Salary", :date #time/date "2020-01-01", :dct :open}
+ {:acc "Equity:Opening-Balances", :date #time/date "2020-01-01", :dct :open}
+ {:date #time/date "2020-01-02",
+  :dct :txn,
+  :flag "*",
+  :narration "January salary",
+  :payee "Employer",
+  :postings [{:acc "Income:Salary", :cur "USD", :units -5000.00M}
+             {:acc "Assets:Bank:Checking", :cur "USD", :units 5000.00M}]}
+ {:date #time/date "2020-01-05",
+  :dct :txn,
+  :flag "*",
+  :narration "Weekly groceries",
+  :payee "Grocery Store",
+  :postings [{:acc "Expenses:Food:Groceries", :cur "USD", :units 50.00M}
+             {:acc "Assets:Bank:Checking", :cur "USD", :units -50.00M}]}]

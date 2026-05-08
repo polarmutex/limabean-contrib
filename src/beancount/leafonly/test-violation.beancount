@@ -1,0 +1,13 @@
+plugin "beancount.leafonly.leafonly"
+
+; Assets:Bank is non-leaf because both Checking and Savings exist as children.
+; Posting a transaction directly to Assets:Bank should trigger an error.
+
+2020-01-01 open Assets:Bank
+2020-01-01 open Assets:Bank:Checking
+2020-01-01 open Assets:Bank:Savings
+2020-01-01 open Equity:Opening-Balances
+
+2020-01-02 * "Bad transfer" "Posting to non-leaf account"
+  Assets:Bank              1000.00 USD
+  Equity:Opening-Balances -1000.00 USD
